@@ -1,0 +1,23 @@
+services:
+  db:
+    container_name: mysql
+    image: mysql:8.3.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: books
+      MYSQL_USER: group4
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql:/data/mysql
+    ports:
+      - "3316:3306"
+    networks:
+      - mysql
+    restart: unless-stopped
+
+networks:
+  mysql:
+    driver: bridge
+
+volumes:
+  mysql:

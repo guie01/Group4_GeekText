@@ -1,0 +1,6 @@
+CREATE TABLE books (
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    title TEXT NOT NULL,
+    edition INT NOT NULL,
+    year INT NOT NULL
+)

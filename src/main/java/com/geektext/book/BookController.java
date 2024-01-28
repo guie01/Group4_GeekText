@@ -1,4 +1,4 @@
-package com.group4.geektext;
+package com.geektext.book;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -20,5 +20,10 @@ public class BookController {
     @GetMapping
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
+    }
+
+    @GetMapping("{year}")
+    public List<Book> findBookByYear(@PathVariable("year") Integer year) {
+        return bookService.findBookByYear(year);
     }
 }

@@ -1,4 +1,4 @@
-package com.group4.geektext;
+package com.geektext.book;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -18,5 +18,10 @@ public class BookDataJPA implements BookDAO {
     @Override
     public List<Book> getAllBooks() {
         return bookRepository.findAll();
+    }
+
+    @Override
+    public List<Book> findBookByYear(Integer year) {
+        return bookRepository.findBookByYear(year);
     }
 }

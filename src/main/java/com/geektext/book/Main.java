@@ -1,4 +1,4 @@
-package com.group4.geektext;
+package com.geektext.book;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

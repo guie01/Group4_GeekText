@@ -1,4 +1,4 @@
-package com.group4.geektext;
+package com.geektext.book;
 
 public record BookRegistrationRequest(String title, Integer edition, Integer year) {
 }

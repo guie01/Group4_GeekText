@@ -1,4 +1,4 @@
-package com.group4.geektext;
+package com.geektext.book;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -9,7 +9,7 @@ import java.util.List;
 @Service
 public class BookService {
 
-    private final BookDataJPA bookDataJPA;
+    private final BookDAO bookDAO;
 
     public void registerBook(BookRegistrationRequest bookRegistrationRequest) {
         // do any validation
@@ -19,10 +19,15 @@ public class BookService {
                 .edition(bookRegistrationRequest.edition())
                 .year(bookRegistrationRequest.year())
                 .build();
-        bookDataJPA.registerBook(book);
+         bookDAO.registerBook(book);
     }
 
     public List<Book> getAllBooks() {
-        return bookDataJPA.getAllBooks();
+        return bookDAO.getAllBooks();
+    }
+
+    public List<Book> findBookByYear(Integer year) {
+        // do any validation
+        return bookDAO.findBookByYear(year);
     }
 }

@@ -1,4 +1,4 @@
-package com.group4.geektext;
+package com.geektext.book;
 
 import jakarta.persistence.*;
 import lombok.Builder;

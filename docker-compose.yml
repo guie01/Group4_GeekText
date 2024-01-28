@@ -1,7 +1,7 @@
 services:
   db:
     container_name: mysql
-    image: mysql:8.3.0
+    image: mysql:8.0.33
     environment:
       MYSQL_ROOT_PASSWORD: password
       MYSQL_DATABASE: books
@@ -13,6 +13,19 @@ services:
       - "3316:3306"
     networks:
       - mysql
+    restart: unless-stopped
+
+  geek-text-api:
+    container_name: geek-text-api
+    image: hugodiaz/geek-text-api
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/books
+    ports:
+      - "8098:8080"
+    networks:
+      - mysql
+    depends_on:
+      - db
     restart: unless-stopped
 
 networks:

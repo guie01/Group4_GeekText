@@ -13,7 +13,7 @@ public class BookController {
     private final BookService bookService;
 
     @PostMapping
-    public void registerBook(@RequestBody BookRegistrationRequest book) {
+    public void registerBook(@RequestBody Book book) {
         bookService.registerBook(book);
     }
 
@@ -23,7 +23,7 @@ public class BookController {
     }
 
     @GetMapping("{year}")
-    public List<Book> findBookByYear(@PathVariable("year") Integer year) {
-        return bookService.findBookByYear(year);
+    public List<Book> findBookByYear(@PathVariable("year") Integer yearPublished) {
+        return bookService.findBookByYear(yearPublished);
     }
 }

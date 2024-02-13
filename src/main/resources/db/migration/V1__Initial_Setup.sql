@@ -4,3 +4,10 @@ CREATE TABLE books (
     edition INT NOT NULL,
     year INT NOT NULL
 )
+CREATE TABLE wishlists (
+    w_id PRIMARY KEY AUTO_INCREMENT,
+    user_id INT NOT NULL,
+    wishlist_id INT NOT NULL,
+    wishlist_name TEXT NOT NULL,
+    book_id INT NOT NULL
+)

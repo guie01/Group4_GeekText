@@ -30,6 +30,7 @@ class BookServiceTest {
         int edition = 3;
         int year = 2000;
 
+
         BookRegistrationRequest request = new BookRegistrationRequest(title, edition, year);
         //When
         underTest.registerBook(request);

@@ -3,6 +3,7 @@ package com.geektext.book;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Year;
 import java.util.List;
 
 @AllArgsConstructor
@@ -11,14 +12,8 @@ public class BookService {
 
     private final BookDAO bookDAO;
 
-    public void registerBook(BookRegistrationRequest bookRegistrationRequest) {
+    public void registerBook(Book book) {
         // do any validation
-
-        Book book = Book.builder()
-                .title(bookRegistrationRequest.title())
-                .edition(bookRegistrationRequest.edition())
-                .year(bookRegistrationRequest.year())
-                .build();
          bookDAO.registerBook(book);
     }
 
@@ -26,8 +21,8 @@ public class BookService {
         return bookDAO.getAllBooks();
     }
 
-    public List<Book> findBookByYear(Integer year) {
+    public List<Book> findBookByYear(Integer yearPublished) {
         // do any validation
-        return bookDAO.findBookByYear(year);
+        return bookDAO.findBookByYear(yearPublished);
     }
 }

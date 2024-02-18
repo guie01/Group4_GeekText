@@ -1,7 +1,6 @@
 package com.geektext.book;
 
 import com.geektext.book.BookDAO;
-import com.geektext.book.BookRegistrationRequest;
 import com.geektext.book.Book;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;

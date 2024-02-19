@@ -5,8 +5,8 @@ INSERT INTO authors (first_name, last_name, biography, publisher) VALUES
 
 -- Books
 INSERT INTO books (isbn, name, description, price, genre, year_published, copies_sold, author_id, publisher) VALUES
-(123456789, 'Book One', 'Description of Book One', 19.99, 'Fiction', 2020, 1000, 1, 'Publisher A'),
-(987654321, 'Book Two', 'Description of Book Two', 24.99, 'Non-Fiction', 2018, 1500, 2, 'Publisher B');
+(123456789, 'Book One', 'Description of Book One', 19.99, 'HORROR', 2020, 1000, 1, 'Publisher A'),
+(987654321, 'Book Two', 'Description of Book Two', 24.99, 'DRAMA', 2018, 1500, 2, 'Publisher B');
 
 -- Users
 INSERT INTO users (username, password, name, email, address) VALUES

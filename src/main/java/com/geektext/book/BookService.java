@@ -14,8 +14,19 @@ public class BookService {
 
     private final BookDAO bookDAO;
 
-    public void registerBook(Book book) {
-        // do any validation
+    public void registerBook(BookRegistrationRequest request) {
+        Book book = Book.builder()
+                .isbn(request.isbn())
+                .name(request.name())
+                .description(request.description())
+                .price(request.price())
+                .genre(request.genre())
+                .yearPublished(request.yearPublished())
+                .copiesSold(request.copiesSold())
+                .authorId(request.authorId())
+                .publisher(request.publisher())
+                .build();
+
          bookDAO.registerBook(book);
     }
 

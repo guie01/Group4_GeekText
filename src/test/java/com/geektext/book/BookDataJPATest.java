@@ -44,6 +44,6 @@ class BookDataJPATest {
         //When
         underTest.findBookByYear(year);
         //Then
-        Mockito.verify(bookRepository).findBookByYear(year);
+        Mockito.verify(bookRepository).findBookByYearPublished(year);
     }
 }

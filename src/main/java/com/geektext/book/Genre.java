@@ -2,5 +2,6 @@ package com.geektext.book;
 
 public enum Genre {
     DRAMA,
-    HORROR
+    HORROR,
+    FICTION
 }

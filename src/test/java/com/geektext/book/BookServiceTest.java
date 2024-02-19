@@ -8,6 +8,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.math.BigDecimal;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(MockitoExtension.class)
@@ -25,12 +27,18 @@ class BookServiceTest {
     @Test
     void registerBook() {
         //Given
-        String title = "ABC123";
-        int edition = 3;
-        int year = 2000;
+        int isbn = 01234567;
+        String name = "ABC123";
+        String description = "Random description...";
+        BigDecimal price = new BigDecimal(100.00);
+        Genre genre = Genre.HORROR;
+        Integer yearPublished = 2000;
+        Integer copiesSold = 10000;
+        Integer authorId = 1;
+        String publisher = "myself";
 
+        BookRegistrationRequest request = new BookRegistrationRequest(isbn, name, description, price, genre, yearPublished, copiesSold, authorId, publisher);
 
-        BookRegistrationRequest request = new BookRegistrationRequest(title, edition, year);
         //When
         underTest.registerBook(request);
         //Then
@@ -39,10 +47,15 @@ class BookServiceTest {
         Book capturedBook = bookArgumentCaptor.getValue();
 
 
-        assertThat(capturedBook.getId()).isNull();
-        assertThat(capturedBook.getTitle()).isEqualTo(title);
-        assertThat(capturedBook.getEdition()).isEqualTo(edition);
-        assertThat(capturedBook.getYear()).isEqualTo(year);
+        assertThat(capturedBook.getIsbn()).isEqualTo(isbn);
+        assertThat(capturedBook.getName()).isEqualTo(name);
+        assertThat(capturedBook.getDescription()).isEqualTo(description);
+        assertThat(capturedBook.getPrice()).isEqualTo(price);
+        assertThat(capturedBook.getGenre()).isEqualTo(genre);
+        assertThat(capturedBook.getYearPublished()).isEqualTo(yearPublished);
+        assertThat(capturedBook.getCopiesSold()).isEqualTo(copiesSold);
+        assertThat(capturedBook.getAuthorId()).isEqualTo(authorId);
+        assertThat(capturedBook.getPublisher()).isEqualTo(publisher);
     }
 
     @Test

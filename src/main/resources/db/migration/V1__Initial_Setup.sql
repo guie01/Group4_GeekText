@@ -9,7 +9,7 @@ CREATE TABLE authors (
 
 -- Book Table
 CREATE TABLE books (
-                       isbn INT PRIMARY KEY,
+                       isbn BIGINT PRIMARY KEY,
                        name TEXT NOT NULL,
                        description TEXT NOT NULL,
                        price FLOAT NOT NULL,
@@ -44,7 +44,7 @@ CREATE TABLE credit_cards (
 -- Book Rating Table
 CREATE TABLE book_ratings (
                               rating_id INT AUTO_INCREMENT PRIMARY KEY,
-                              book_isbn INT NOT NULL,
+                              book_isbn BIGINT NOT NULL,
                               user_id INT NOT NULL,
                               rating_value INT NOT NULL,
                               datestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -55,7 +55,7 @@ CREATE TABLE book_ratings (
 -- Comment Table
 CREATE TABLE book_comments (
                                comment_id INT AUTO_INCREMENT PRIMARY KEY,
-                               book_isbn INT NOT NULL,
+                               book_isbn BIGINT NOT NULL,
                                user_id INT NOT NULL,
                                comment_text TEXT NOT NULL,
                                datestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -74,7 +74,7 @@ CREATE TABLE shopping_carts (
 CREATE TABLE cart_items (
                             id INT AUTO_INCREMENT PRIMARY KEY,
                             shopping_cart_id INT NOT NULL,
-                            book_id INT NOT NULL,
+                            book_id BIGINT NOT NULL,
                             quantity INT NOT NULL,
                             FOREIGN KEY (shopping_cart_id) REFERENCES shopping_carts(id),
                             FOREIGN KEY (book_id) REFERENCES books(isbn)
@@ -86,8 +86,7 @@ CREATE TABLE wishlists (
                            user_id INT NOT NULL,
                            wishlist_id INT NOT NULL,
                            wishlist_name TEXT NOT NULL,
-                           book_id INT NOT NULL,
+                           book_id BIGINT NOT NULL,
                            FOREIGN KEY(user_id) REFERENCES users (id),
                            FOREIGN KEY (book_id) REFERENCES books(isbn)
-
 );

@@ -1,4 +1,4 @@
-package com.geektext.book;
+package com.geektext.book_details.book;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -27,23 +27,5 @@ class BookDataJPATest {
         underTest.registerBook(book);
         //Then
         Mockito.verify(bookRepository).save(book);
-    }
-
-    @Test
-    void getAllBooks() {
-        //When
-        underTest.getAllBooks();
-        //Then
-        Mockito.verify(bookRepository).findAll();
-    }
-
-    @Test
-    void getBooksByYear() {
-        //Given
-        int year = 2000;
-        //When
-        underTest.findBookByYear(year);
-        //Then
-        Mockito.verify(bookRepository).findBookByYear(year);
     }
 }

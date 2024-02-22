@@ -1,11 +1,13 @@
 server:
   port: 8080
+  error:
+    include-message: always
 spring:
   application:
     name: geek-text
   datasource:
     username: 'group4'
-    url: jdbc:mysql://localhost:3316/books
+    url: jdbc:mysql://localhost:3316/bookstore
     password: 'password'
   flyway:
     baseline-on-migrate: true

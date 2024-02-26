@@ -10,4 +10,6 @@ public interface BookDAO {
     void registerBook(Book book);
     Optional<Book> getBookByIsbn(BigInteger isbn);
     List<Book> getBooksByAuthorId(Integer authorId);
+    List<Book> getBooksByGenre(Genre genre);
+
 }

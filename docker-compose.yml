@@ -4,7 +4,7 @@ services:
     image: mysql:8.0.33
     environment:
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: books
+      MYSQL_DATABASE: bookstore
       MYSQL_USER: group4
       MYSQL_PASSWORD: password
     volumes:
@@ -19,7 +19,7 @@ services:
     container_name: geek-text-api
     image: hugodiaz/geek-text-api
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/books
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/bookstore
     ports:
       - "8098:8080"
     networks:

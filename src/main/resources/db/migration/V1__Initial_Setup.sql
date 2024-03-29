@@ -18,7 +18,8 @@ CREATE TABLE books (
                        copies_sold INT NOT NULL,
                        author_id INT NOT NULL,
                        publisher TEXT NOT NULL,
-                       FOREIGN KEY (author_id) REFERENCES authors(id)
+                       FOREIGN KEY (author_id) REFERENCES authors(id),
+                       rating INT NOT NULL
 );
 
 -- User Table

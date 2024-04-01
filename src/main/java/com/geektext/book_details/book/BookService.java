@@ -44,10 +44,4 @@ public class BookService {
         if (!booksByAuthor.isEmpty()) return booksByAuthor;
         else throw new ResourceNotFoundException("Author with id [%d] doesn't have books");
     }
-
-    public List <Book> getBooksByGenre(Genre genre){
-        return bookDAO.getBooksByGenre(genre);
-    }
-
-
 }

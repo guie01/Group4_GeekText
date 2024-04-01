@@ -28,12 +28,4 @@ public class BookController {
     public List<Book> getBooksByAuthorId(@PathVariable("authorId") Integer authorId) {
         return bookService.getBooksByAuthorId(authorId);
     }
-
-    @GetMapping("/genre/{genre}")
-    public List<Book> findBookByGenre(@PathVariable("genre") Genre genre) {
-        return bookService.getBooksByGenre(genre);
-    }
-
-
-
 }

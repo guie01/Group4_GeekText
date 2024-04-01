@@ -1,2 +1,4 @@
-package com.geektext.user;public interface UserRepository {
+package com.geektext.user;
+
+public class UserRepository {
 }

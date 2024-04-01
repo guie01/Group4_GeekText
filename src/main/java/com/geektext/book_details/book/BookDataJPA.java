@@ -33,9 +33,4 @@ public class BookDataJPA implements BookDAO {
     public List<Book> getBooksByAuthorId(Integer authorId) {
         return bookRepository.findBooksByAuthorId(authorId);
     }
-
-    @Override
-    public List<Book> getBooksByGenre(Genre genre) {
-        return bookRepository.findBooksByGenre(genre);
-    }
 }

@@ -1,4 +1,4 @@
-package com.geektext.user;
+package com.geektext.user.creditcard;
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

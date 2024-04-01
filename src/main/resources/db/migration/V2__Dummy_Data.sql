@@ -77,20 +77,7 @@ INSERT INTO book_comments (book_isbn, user_id, comment_text) VALUES
     (9780400277710, 10, 'Gripping crime story from start to finish.');
 
 -- Shopping Carts
-INSERT INTO shopping_carts (user_id) VALUES
-(1),
-(2),
-(3),
-(4),
-(5),
-(6),
-(7),
-(8),
-(9),
-(10);
-
--- Cart Items
-INSERT INTO cart_items (shopping_cart_id, book_id, quantity) VALUES
+INSERT INTO shopping_carts(user_id, book_id, quantity) VALUES
     (1, 9780307277671, 1),
     (2, 9780316277722, 2),
     (3, 9780337277733, 1),
@@ -101,6 +88,8 @@ INSERT INTO cart_items (shopping_cart_id, book_id, quantity) VALUES
     (8, 9780388277788, 2),
     (9, 9780399277799, 1),
     (10, 9780400277710, 2);
+
+
 
 -- Wishlists
 INSERT INTO wishlists (user_id, wishlist_id, wishlist_name, book_id) VALUES

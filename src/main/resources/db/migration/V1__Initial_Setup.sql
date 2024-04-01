@@ -68,18 +68,12 @@ CREATE TABLE book_comments (
 CREATE TABLE shopping_carts (
                                 id INT AUTO_INCREMENT PRIMARY KEY,
                                 user_id INT NOT NULL,
-                                FOREIGN KEY (user_id) REFERENCES users(id)
+                                book_id BIGINT NOT NULL,
+                                quantity INT NOT NULL,
+                                FOREIGN KEY (user_id) REFERENCES users(id),
+                                FOREIGN KEY (book_id) REFERENCES books(isbn)
 );
 
--- Cart Item Table
-CREATE TABLE cart_items (
-                            id INT AUTO_INCREMENT PRIMARY KEY,
-                            shopping_cart_id INT NOT NULL,
-                            book_id BIGINT NOT NULL,
-                            quantity INT NOT NULL,
-                            FOREIGN KEY (shopping_cart_id) REFERENCES shopping_carts(id),
-                            FOREIGN KEY (book_id) REFERENCES books(isbn)
-);
 
 -- Wishlist Table
 CREATE TABLE wishlists (

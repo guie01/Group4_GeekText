@@ -25,6 +25,16 @@ public class BookRatingsController {
         bookRatingService.createRating(request);
     }
 
+    @GetMapping("/averageRating/{isbn}")
+    public ResponseEntity<Double> getAverageRatingByBookIsbn(@PathVariable("isbn") BigInteger bookIsbn) {
+        Double averageRating = bookRatingService.getAverageRatingByBookIsbn(bookIsbn);
+        if (averageRating != null) {
+            return ResponseEntity.ok(averageRating);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     public static class RatingRequest {
         private int rating;
         private int userId;

@@ -6,4 +6,6 @@ import java.util.List;
 public interface BookRatingsDAO {
     List<BookRatings> getRatingsByBookIsbn(BigInteger bookIsbn);
     void saveRating(BookRatings bookRating);
+
+    Double getAverageRatingByBookIsbn(BigInteger bookIsbn);
 }

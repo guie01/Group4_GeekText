@@ -23,4 +23,9 @@ public class BookRatingsDataJPA implements BookRatingsDAO {
     public void saveRating(BookRatings bookRating) {
         bookRatingRepository.save(bookRating);
     }
+
+    @Override
+    public Double getAverageRatingByBookIsbn(BigInteger bookIsbn) {
+        return bookRatingRepository.findAverageRatingByBookIsbn(bookIsbn);
+    }
 }

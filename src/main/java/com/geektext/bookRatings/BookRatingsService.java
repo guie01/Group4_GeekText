@@ -29,4 +29,8 @@ public class BookRatingsService {
         bookRatingDAO.saveRating(bookRating);
     }
 
+    public Double getAverageRatingByBookIsbn(BigInteger bookIsbn) {
+        return bookRatingDAO.getAverageRatingByBookIsbn(bookIsbn);
+    }
+
 }

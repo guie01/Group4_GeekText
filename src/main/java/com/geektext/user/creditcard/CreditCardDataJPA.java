@@ -1,4 +1,4 @@
-package com.geektext.user;
+package com.geektext.user.creditcard;
 
 
 import com.geektext.user.User;

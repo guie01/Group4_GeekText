@@ -2,7 +2,6 @@ package com.geektext.bookComments;
 
 import com.geektext.bookRatings.BookRatingsController;
 import lombok.AllArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigInteger;
@@ -20,11 +19,10 @@ public class BookCommentsController {
         return bookCommentService.getCommentsByBookIsbn(isbn);
     }
 
-    /*@GetMapping("/comments/{isbn}")
-    public ResponseEntity<List<String>> getCommentsTextByBookIsbn(@PathVariable("isbn") BigInteger bookIsbn) {
-        List<String> commentTexts = bookCommentService.getCommentTextsByBookIsbn(bookIsbn);
-        return ResponseEntity.ok(commentTexts);
-    }*/
+    /*@GetMapping("/{isbn}comments")
+    public List<String> getCommentTextsByBookIsbn(@PathVariable("isbn") BigInteger bookIsbn) {
+        return bookCommentService.getCommentTextsByBookIsbn(bookIsbn);
+    } */
 
     @PostMapping("/create")
     public void createRating(@RequestBody BookCommentsController.CommentRequest request) {

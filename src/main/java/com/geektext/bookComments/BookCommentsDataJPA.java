@@ -17,9 +17,8 @@ public class BookCommentsDataJPA implements BookCommentsDAO {
 
     @Override
     public List<BookComments> getCommentsByBookIsbn(BigInteger isbn) {
-        return bookCommentRepository.findCommentsByBookIsbn(isbn);
+        return bookCommentRepository.findCommentsByBookIsbn(isbn); // Corrected usage
     }
-
     @Override
     public void saveComment(BookComments bookComment) {
         bookCommentRepository.save(bookComment);

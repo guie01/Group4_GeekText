@@ -18,13 +18,14 @@ CREATE TABLE books (
                        copies_sold INT NOT NULL,
                        author_id INT NOT NULL,
                        publisher TEXT NOT NULL,
-                       FOREIGN KEY (author_id) REFERENCES authors(id)
+                       FOREIGN KEY (author_id) REFERENCES authors(id),
+                       rating INT NOT NULL
 );
 
 -- User Table
 CREATE TABLE users (
                        id INT AUTO_INCREMENT PRIMARY KEY,
-                       username VARCHAR(50) NOT NULL,
+                       username VARCHAR(50) NOT NULL UNIQUE ,
                        password VARCHAR(100) NOT NULL,
                        name VARCHAR(100),
                        email VARCHAR(100),

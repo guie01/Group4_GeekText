@@ -12,6 +12,7 @@ public class AuthorService {
 
     private final AuthorDAO authorDAO;
 
+
     public boolean existsAuthor(Author author) {
         List<Author> authors = authorDAO.findAllAuthors();
         List<Author> list = authors.stream()

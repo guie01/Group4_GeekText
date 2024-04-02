@@ -12,17 +12,17 @@ INSERT INTO authors (first_name, last_name, biography, publisher) VALUES
     ('Robert', 'Clark', 'Robert writes thriller novels...', 'Pan Macmillan');
 
 -- Books
-INSERT INTO books (isbn, name, description, price, author_id, genre, publisher, year_published, copies_sold) VALUES
-    (9780307277671, 'Book 1', 'A thrilling journey...', 19.99, 1, 'FICTION', 'Penguin Books', 2021, 5000),
-    (9780316277722, 'Book 2', 'An insightful exploration...', 24.99, 2, 'SCIENCE', 'HarperCollins', 2020, 3000),
-    (9780337277733, 'Book 3', 'A captivating novel...', 15.99, 3, 'MYSTERY', 'Simon & Schuster', 2019, 4000),
-    (9780348277744, 'Book 4', 'Adventure at its best...', 22.99, 4, 'ADVENTURE', 'Hachette Book Group', 2018, 3500),
-    (9780359277755, 'Book 5', 'A deep dive into science...', 18.99, 5, 'SCIENCE', 'Macmillan Publishers', 2022, 4500),
-    (9780366277766, 'Book 6', 'Exploring the depths of human emotion...', 16.99, 6, 'PSYCHOLOGY', 'Random House', 2017, 2000),
-    (9780377277777, 'Book 7', 'A guide to personal growth...', 21.99, 7, 'SELF_HELP', 'Scholastic Corporation', 2023, 1500),
-    (9780388277788, 'Book 8', 'Adventures in a fantastical world...', 25.99, 8, 'FANTASY', 'Penguin Random House', 2021, 6000),
-    (9780399277799, 'Book 9', 'Poetry for the modern soul...', 14.99, 9, 'POETRY', 'Bloomsbury', 2020, 1000),
-    (9780400277710, 'Book 10', 'A thrilling crime novel...', 17.99, 10, 'CRIME', 'Pan Macmillan', 2019, 3000);
+INSERT INTO books (isbn, name, description, price, author_id, genre, publisher, year_published, copies_sold, rating) VALUES
+    (9780307277671, 'Book 1', 'A thrilling journey...', 19.99, 1, 'FICTION', 'Penguin Books', 2021, 5000, 5),
+    (9780316277722, 'Book 2', 'An insightful exploration...', 24.99, 2, 'SCIENCE', 'HarperCollins', 2020, 3000, 4),
+    (9780337277733, 'Book 3', 'A captivating novel...', 15.99, 3, 'MYSTERY', 'Simon & Schuster', 2019, 4000, 3),
+    (9780348277744, 'Book 4', 'Adventure at its best...', 22.99, 4, 'ADVENTURE', 'Hachette Book Group', 2018, 3500, 5),
+    (9780359277755, 'Book 5', 'A deep dive into science...', 18.99, 5, 'SCIENCE', 'Macmillan Publishers', 2022, 4500, 4),
+    (9780366277766, 'Book 6', 'Exploring the depths of human emotion...', 16.99, 6, 'PSYCHOLOGY', 'Random House', 2017, 2000, 3),
+    (9780377277777, 'Book 7', 'A guide to personal growth...', 21.99, 7, 'SELF_HELP', 'Scholastic Corporation', 2023, 1500, 5),
+    (9780388277788, 'Book 8', 'Adventures in a fantastical world...', 25.99, 8, 'FANTASY', 'Penguin Random House', 2021, 6000, 4),
+    (9780399277799, 'Book 9', 'Poetry for the modern soul...', 14.99, 9, 'POETRY', 'Bloomsbury', 2020, 1000, 3),
+    (9780400277710, 'Book 10', 'A thrilling crime novel...', 17.99, 10, 'CRIME', 'Pan Macmillan', 2019, 3000, 5);
 
 -- Users
 INSERT INTO users (username, password, name, email, address) VALUES

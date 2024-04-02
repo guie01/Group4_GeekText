@@ -42,7 +42,10 @@ public class Book {
     @Column(nullable = false)
     private Integer copiesSold;
 
-    public Book(BigInteger isbn, String name, String description, BigDecimal price, Integer authorId, Genre genre, String publisher, Integer yearPublished, Integer copiesSold) {
+    @Column(nullable = false)
+    private Integer rating;
+
+    public Book(BigInteger isbn, String name, String description, BigDecimal price, Integer authorId, Genre genre, String publisher, Integer yearPublished, Integer copiesSold, Integer rating) {
         this.isbn = isbn;
         this.name = name;
         this.description = description;
@@ -52,6 +55,7 @@ public class Book {
         this.publisher = publisher;
         this.yearPublished = yearPublished;
         this.copiesSold = copiesSold;
+        this.rating = rating;
     }
 
     public Book() {

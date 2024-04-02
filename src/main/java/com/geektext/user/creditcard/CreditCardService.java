@@ -4,9 +4,14 @@ import com.geektext.user.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+@Service
+@AllArgsConstructor
 public class CreditCardService {
 
     private final CreditCardDAO creditCardDAO;
+    private final UserService userService;
 
 
     public boolean existsCreditCard(CreditCard creditCard){
@@ -18,20 +23,24 @@ public class CreditCardService {
                 .toList();
         return !list.isEmpty();
     }
-    public void createCreditCard(CreateCreditCardRequest request){
-        if(!userService.existsUserWIthID(username)){
 
-            CreditCard creditcard = CreditCard.builder()
+    public void createCreditCard(String username, CreateCreditCardRequest request){
+            int userId = userService.getUserIdByUsername(username);
+
+            CreditCard creditCard = CreditCard.builder()
+                    .user_id(userId)
                     .card_number(request.card_number())
                     .expiration_date(request.expiration_date())
                     .cvv(request.cvv())
                     .build();
 
-            if (!existsUser(user)) creditCardDAO.createCreditCard(creditcard);
-            else throw new ResourceNotFoundException("User [%s] was not found".formatted(user.getUsername()));
 
+        if(userService.existsUserWithID(userId)) {
+            creditCardDAO.createCreditCard(creditCard);
         }
+            else {
+                throw new ResourceNotFoundException("User with user id [%d] was not found".formatted(userId));
+        }
+
     }
-
 }
-

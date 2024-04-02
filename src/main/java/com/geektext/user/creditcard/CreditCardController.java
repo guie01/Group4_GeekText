@@ -1,10 +1,7 @@
-package com.geektext.user;
+package com.geektext.user.creditcard;
 
-import com.geektext.user.creditcard.CreditCardService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @RestController
@@ -13,8 +10,8 @@ import java.util.List;
 
 public class CreditCardController {
    private final CreditCardService creditCardService;
-    @PostMapping
-    public void createCreditCard(RequestBody CreateCreditCardRequest createCrediCardRequest){
-        creditCardService.createCreditCard(createCreditCardRequest);
+    @PostMapping("/{username}")
+    public void createCreditCard(@PathVariable("username") String username, @RequestBody CreateCreditCardRequest createCreditCardRequest){
+        creditCardService.createCreditCard(username, createCreditCardRequest);
     };
 }

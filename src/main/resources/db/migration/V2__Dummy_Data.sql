@@ -92,14 +92,27 @@ INSERT INTO shopping_carts(user_id, book_id, quantity) VALUES
 
 
 -- Wishlists
-INSERT INTO wishlists (user_id, wishlist_id, wishlist_name, book_id) VALUES
-    (1, 1, 'My First Wishlist', 9780307277671),
-    (2, 2, 'Summer Reads', 9780316277722),
-    (3, 3, 'Fiction Faves', 9780337277733),
-    (4, 4, 'Historical Picks', 9780348277744),
-    (5, 5, 'Science Selections', 9780359277755),
-    (6, 6, 'Psychology Reads', 9780366277766),
-    (7, 7, 'Self-help Collection', 9780377277777),
-    (8, 8, 'Fantasy Adventures', 9780388277788),
-    (9, 9, 'Poetic Works', 9780399277799),
-    (10, 10, 'Crime Thrillers', 9780400277710);
+INSERT INTO wishlists (user_id, w_id, wishlist_name) VALUES
+    (1, 1, 'My First Wishlist'),
+    (1, 1, 'My First Wishlist'),
+    (1, 2, 'Fiction Faves'),
+    (2, 3, 'Historical Picks'),
+    (2, 4, 'Science Selections'),
+    (2, 4, 'Science Selections'),
+    (3, 7, 'Self-help Collection'),
+    (3, 8, 'Fantasy Adventures'),
+    (4, 9, 'Poetic Works'),
+    (5, 10, 'Crime Thrillers');
+
+-- Wishlists_books
+INSERT INTO wishlists_books (w, isbn) VALUES
+    (1, 9780307277671),
+    (1, 9780316277722),
+    (2, 9780337277733),
+    (3, 9780348277744),
+    (4, 9780359277755),
+    (4, 9780366277766),
+    (7, 9780377277777),
+    (8, 9780388277788),
+    (9, 9780399277799),
+    (10,9780400277710);

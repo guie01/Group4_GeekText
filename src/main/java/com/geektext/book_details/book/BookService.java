@@ -6,6 +6,7 @@ import com.geektext.exceptions.DuplicateResourceException;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -47,6 +48,14 @@ public class BookService {
 
     public List <Book> getBooksByGenre(Genre genre){
         return bookDAO.getBooksByGenre(genre);
+    }
+
+    public List <Book> getTop10BooksByCopiesSold() { return bookDAO.getTop10BooksByCopiesSold(); }
+
+    public List <Book> getBooksByRatingAndHigher(Integer rating) {return bookDAO.getBooksByRatingAndHigher(rating);}
+
+    public void discountBooksByPublisher(String publisher, BigDecimal discountPercentage) {
+        bookDAO.applyDiscountByPublisher(discountPercentage, publisher);
     }
 
 

@@ -1,3 +1,5 @@
+
+
 -- Author Table
 CREATE TABLE authors (
                          id INT PRIMARY KEY AUTO_INCREMENT,
@@ -18,13 +20,14 @@ CREATE TABLE books (
                        copies_sold INT NOT NULL,
                        author_id INT NOT NULL,
                        publisher TEXT NOT NULL,
-                       FOREIGN KEY (author_id) REFERENCES authors(id)
+                       FOREIGN KEY (author_id) REFERENCES authors(id),
+                       rating INT NOT NULL
 );
 
 -- User Table
 CREATE TABLE users (
                        id INT AUTO_INCREMENT PRIMARY KEY,
-                       username VARCHAR(50) NOT NULL,
+                       username VARCHAR(50) NOT NULL UNIQUE ,
                        password VARCHAR(100) NOT NULL,
                        name VARCHAR(100),
                        email VARCHAR(100),
@@ -67,26 +70,27 @@ CREATE TABLE book_comments (
 CREATE TABLE shopping_carts (
                                 id INT AUTO_INCREMENT PRIMARY KEY,
                                 user_id INT NOT NULL,
-                                FOREIGN KEY (user_id) REFERENCES users(id)
+                                book_id BIGINT NOT NULL,
+                                quantity INT NOT NULL,
+                                FOREIGN KEY (user_id) REFERENCES users(id),
+                                FOREIGN KEY (book_id) REFERENCES books(isbn)
 );
 
--- Cart Item Table
-CREATE TABLE cart_items (
-                            id INT AUTO_INCREMENT PRIMARY KEY,
-                            shopping_cart_id INT NOT NULL,
-                            book_id BIGINT NOT NULL,
-                            quantity INT NOT NULL,
-                            FOREIGN KEY (shopping_cart_id) REFERENCES shopping_carts(id),
-                            FOREIGN KEY (book_id) REFERENCES books(isbn)
-);
 
 -- Wishlist Table
 CREATE TABLE wishlists (
                            id INT PRIMARY KEY AUTO_INCREMENT,
                            user_id INT NOT NULL,
-                           wishlist_id INT NOT NULL,
+                           w_id INT NOT NULL,
                            wishlist_name TEXT NOT NULL,
-                           book_id BIGINT NOT NULL,
                            FOREIGN KEY(user_id) REFERENCES users (id),
-                           FOREIGN KEY (book_id) REFERENCES books(isbn)
+                           INDEX idx_wishlists_w (w_id)
+);
+
+CREATE TABLE wishlists_books (
+                           id INT PRIMARY KEY AUTO_INCREMENT,
+                           w INT NOT NULL,
+                           isbn BIGINT NOT NULL,
+                           FOREIGN KEY (w) REFERENCES wishlists(w_id),
+                           FOREIGN KEY (isbn) REFERENCES books(isbn)
 );

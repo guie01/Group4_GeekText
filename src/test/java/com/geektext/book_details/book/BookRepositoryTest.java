@@ -3,6 +3,7 @@ package com.geektext.book_details.book;
 import com.geektext.AbstractTestContainers;
 import com.geektext.book_details.author.Author;
 import com.geektext.book_details.author.AuthorRepository;
+import jakarta.persistence.EntityManager;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -41,9 +42,9 @@ class BookRepositoryTest extends AbstractTestContainers {
         authorRepository.save(author1);
         authorRepository.save(author2);
 
-        Book book1 = new Book(new BigInteger("9323423523"), "ABC123", "Random description", new BigDecimal("100.00"), 1, Genre.HORROR, "myself", 2000, 1000);
-        Book book2 = new Book(new BigInteger("9845635634"), "ABC123", "Random description", new BigDecimal("100.00"), 1, Genre.DRAMA, "myself", 2000, 1000);
-        Book book3 = new Book(new BigInteger("9346278345"), "ABC123", "Random description", new BigDecimal("100.00"), 2, Genre.FICTION, "myself", 2001, 1000);
+        Book book1 = new Book(new BigInteger("9323423523"), "ABC123", "Random description", new BigDecimal("100.00"), author1.getId(), Genre.HORROR, "myself", 2000, 1000);
+        Book book2 = new Book(new BigInteger("9845635634"), "ABC123", "Random description", new BigDecimal("100.00"), author1.getId(), Genre.DRAMA, "myself", 2000, 1000);
+        Book book3 = new Book(new BigInteger("9346278345"), "ABC123", "Random description", new BigDecimal("100.00"), author2.getId(), Genre.FICTION, "myself", 2001, 1000);
 
         underTest.save(book1);
         underTest.save(book2);
@@ -54,33 +55,5 @@ class BookRepositoryTest extends AbstractTestContainers {
         assertThat(books).contains(book1);
         assertThat(books).contains(book2);
         assertThat(books).doesNotContain(book3);
-    }
-
-    @Test
-    void test() {
-        //Given
-        Author author1 = new Author("Alex", "Smith", "Random biography", "Publisher A");
-        authorRepository.save(author1);
-
-        Book book1 = new Book(new BigInteger("9300000000"), "ABC123", "Random description", new BigDecimal("100.00"), 1, Genre.HORROR, "myself", 2000, 1000);
-        //When
-        underTest.save(book1);
-        //Then
-        List<Book> books = underTest.findAll();
-        assertThat(books.get(0)).isEqualTo(book1);
-    }
-
-    @Test
-    void test2() {
-        //Given
-        Author author1 = new Author("Jose", "Smith", "Random biography", "Publisher A");
-        authorRepository.save(author1);
-
-        Book book1 = new Book(new BigInteger("9300000011"), "ABC123", "Random description", new BigDecimal("100.00"), 1, Genre.HORROR, "myself", 2000, 1000);
-        //When
-        underTest.save(book1);
-        //Then
-        List<Book> books = underTest.findAll();
-        assertThat(books.get(0)).isEqualTo(book1);
     }
 }

@@ -20,6 +20,7 @@ public class BookDataJPA implements BookDAO {
         return bookRepository.existsById(isbn);
     }
 
+    @Override
     public void registerBook(Book book) {
         bookRepository.save(book);
     }

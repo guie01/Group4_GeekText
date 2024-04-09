@@ -59,8 +59,9 @@ class BookServiceTest {
         Integer yearPublished = 2000;
         Integer copiesSold = 10000;
         String publisher = "myself";
+        Integer rating = 5;
 
-        Book book = new Book(isbn, name, description, price, authorId, genre, publisher, yearPublished, copiesSold);
+        Book book = new Book(isbn, name, description, price, authorId, genre, publisher, yearPublished, copiesSold, rating);
 
         //When
         underTest.registerBook(book);
@@ -92,8 +93,9 @@ class BookServiceTest {
         Integer yearPublished = 2000;
         Integer copiesSold = 10000;
         String publisher = "myself";
+        Integer rating = 5;
 
-        Book expectedBook = new Book(isbn, name, description, price, authorId, genre, publisher, yearPublished, copiesSold);
+        Book expectedBook = new Book(isbn, name, description, price, authorId, genre, publisher, yearPublished, copiesSold, rating);
         Mockito.when(bookDAO.getBookByIsbn(isbn)).thenReturn(Optional.of(expectedBook));
 
         //When
@@ -114,10 +116,11 @@ class BookServiceTest {
         Integer yearPublished = 2000;
         Integer copiesSold = 10000;
         String publisher = "myself";
+        Integer rating = 5;
 
-        Book expectedBook1 = new Book(new BigInteger("11111111111"), name, description, price, authorId, genre, publisher, yearPublished, copiesSold);
-        Book expectedBook2 = new Book(new BigInteger("22222222222"), name, description, price, authorId, genre, publisher, yearPublished, copiesSold);
-        Book expectedBook3 = new Book(new BigInteger("33333333333"), name, description, price, authorId, genre, publisher, yearPublished, copiesSold);
+        Book expectedBook1 = new Book(new BigInteger("11111111111"), name, description, price, authorId, genre, publisher, yearPublished, copiesSold, rating);
+        Book expectedBook2 = new Book(new BigInteger("22222222222"), name, description, price, authorId, genre, publisher, yearPublished, copiesSold, rating);
+        Book expectedBook3 = new Book(new BigInteger("33333333333"), name, description, price, authorId, genre, publisher, yearPublished, copiesSold, rating);
         List<Book> expectedBooks = List.of(expectedBook1, expectedBook2, expectedBook3);
 
         Mockito.when(bookDAO.getBooksByAuthorId(1)).thenReturn(expectedBooks);

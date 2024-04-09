@@ -42,9 +42,9 @@ class BookRepositoryTest extends AbstractTestContainers {
         authorRepository.save(author1);
         authorRepository.save(author2);
 
-        Book book1 = new Book(new BigInteger("9323423523"), "ABC123", "Random description", new BigDecimal("100.00"), author1.getId(), Genre.HORROR, "myself", 2000, 1000);
-        Book book2 = new Book(new BigInteger("9845635634"), "ABC123", "Random description", new BigDecimal("100.00"), author1.getId(), Genre.DRAMA, "myself", 2000, 1000);
-        Book book3 = new Book(new BigInteger("9346278345"), "ABC123", "Random description", new BigDecimal("100.00"), author2.getId(), Genre.FICTION, "myself", 2001, 1000);
+        Book book1 = new Book(new BigInteger("9323423523"), "ABC123", "Random description", new BigDecimal("100.00"), author1.getId(), Genre.HORROR, "myself", 2000, 1000, 5);
+        Book book2 = new Book(new BigInteger("9845635634"), "ABC123", "Random description", new BigDecimal("100.00"), author1.getId(), Genre.DRAMA, "myself", 2000, 1000, 4);
+        Book book3 = new Book(new BigInteger("9346278345"), "ABC123", "Random description", new BigDecimal("100.00"), author2.getId(), Genre.FICTION, "myself", 2001, 1000, 5);
 
         underTest.save(book1);
         underTest.save(book2);
